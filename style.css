@@ -26,6 +26,8 @@ body {
 .hero {
   position: relative;
   min-height: 100vh;
+  transition: opacity 3s ease-out;
+  overflow: hidden;
 }
 
 .hero h1,
@@ -59,6 +61,31 @@ body {
   color: #fff7fc;
 }
 
+.hidden {
+  opacity: 0;
+  position: fixed;
+}
+
+.glitter {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  background: white;
+  animation: fall linear infinite;
+  border-radius: 50%;
+}
+
+@keyframes fall {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
 .mynavbar {
   background-color: rgba(255, 255, 255, 0.3) !important;
   backdrop-filter: blur(4px);
@@ -87,8 +114,8 @@ body {
   background-image: url(img/bg.png);
   background-size: cover;
   min-height: 100vh;
-  margin-top: -6.5rem;
-  padding-top: 12rem;
+  margin-top: -6rem;
+  padding-top: 15rem;
   padding-bottom: 5rem;
 }
 
@@ -430,23 +457,21 @@ footer li {
 }
 
 /* Media Query */
-
-/* Extra Large */
-@media (max-width: 1200px) {
+/* Extra large */
+@media (max-width: 1280px) {
   .home .heart {
-    transform: translateX(-50%) translateY(60px);
+    transform: translateX(-50%) translateY(45px);
   }
 }
 
-/* Laptop */
-
+/* laptop */
 @media (max-width: 992px) {
   html {
     font-size: 75%;
   }
 
   .simply-countdown > .simply-section {
-    padding: 65px;
+    padding: 70px;
   }
 
   .home .heart {
@@ -460,10 +485,11 @@ footer li {
   .timeline li .timeline-image {
     left: 15px;
     margin-left: 45px;
+    top: 16px;
   }
 
   .timeline li .timeline-panel {
-    width: calc((100%-200px));
+    width: calc((100% - 200px));
     float: right;
   }
 
@@ -482,15 +508,14 @@ footer li {
   }
 }
 
-/* Tablet */
-
-@media (max-width: 768px) {
+/* tablet */
+@media (max-width: 767px) {
   html {
-    font-size: 60%;
+    font-size: 65%;
   }
 
   .simply-countdown > .simply-section {
-    padding: 55px;
+    padding: 60px;
     margin: 5px;
   }
 
@@ -499,22 +524,25 @@ footer li {
     text-align: center;
   }
 
+  .sticky-top {
+    overflow: hidden;
+  }
+
   .timeline li .timeline-image {
     width: 140px;
     height: 140px;
   }
 }
 
-/* Mobile Phone */
-
+/* mobile phone */
 @media (max-width: 576px) {
   html {
-    font-size: 55%;
+    font-size: 60%;
   }
 
   .simply-countdown > .simply-section {
-    padding: 45px;
-    margin: 3px;
+    padding: 40px;
+    margin: px;
   }
 
   .timeline li .timeline-image {
@@ -524,38 +552,7 @@ footer li {
 
   .timeline li .timeline-panel {
     width: 65%;
-    transform: translatex(-20px);
-  }
-
-  .timeline li .timeline-panel::before {
-    top: 30px;
-  }
-
-  .timeline li .timeline-panel::after {
-    top: 31px;
-  }
-}
-
-/* Extra Small Device */
-
-@media (max-width: 416px) {
-  html {
-    font-size: 55%;
-  }
-
-  .simply-countdown > .simply-section {
-    padding: 39px;
-    margin: 3px;
-  }
-
-  .timeline li .timeline-image {
-    width: 80px;
-    height: 80px;
-  }
-
-  .timeline li .timeline-panel {
-    width: 65%;
-    transform: translatex(-20px);
+    transform: translateX(-20px);
   }
 
   .timeline li .timeline-panel::before {
