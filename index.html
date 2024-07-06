@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Reza & Rina Wedding</title>
+    <title>The Wedding of Reza & Rina</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -11,17 +11,10 @@
       crossorigin="anonymous"
     />
 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Homemade+Apple&family=Sacramento&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montez&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Galada&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Galada&family=Montez&family=Sacramento&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
 
@@ -35,6 +28,16 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
     />
 
+    <!-- AOS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <!-- Animate Style -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+
+    <!-- CSS Style -->
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -43,13 +46,26 @@
       class="hero w-100 h-100 p-3 mx-auto text-center d-flex justify-content-center align-items-center text-white"
     >
       <main>
-        <h4>Kepada <span>Bapak/Ibu/Saudara/i, </span></h4>
-        <h1>Reza & Rina</h1>
-        <p>Akan melangsungkan perrnikahan dalam:</p>
-        <div class="simply-countdown"></div>
-        <a href="#home" class="btn btn-lg mt-4" onclick="enableScroll()"
-          >Lihat Undangan</a
+        <h4 class="animate__animated animate__zoomInDown animate__slow">
+          Kepada <span>Bapak/Ibu/Saudara/i, </span>
+        </h4>
+        <h1
+          class="animate__animated animate__zoomIn animate__slow animate__delay-2s"
         >
+          Reza & Rina
+        </h1>
+        <p class="animate__animated animate__zoomInUp animate__slow">
+          Akan melangsungkan perrnikahan dalam:
+        </p>
+        <div
+          class="simply-countdown animate__animated animate__bounceIn animate__slower animate__delay-2s"
+        ></div>
+        <a
+          href="#home"
+          class="btn btn-lg mt-4 animate__animated animate__fadeIn animate__slower animate__delay-2s"
+          onclick="enableScroll()"
+          >Lihat Undangan
+        </a>
       </main>
     </section>
 
@@ -229,7 +245,7 @@
         </div>
 
         <div class="row justify-content-center mt-4">
-          <div class="col-md-6 col-10 text-center mt-3">
+          <div class="col-md-6 col-10 text-center">
             <h3>Akad Nikah</h3>
             <div class="row justify-content-center">
               <div class="col-md-10 text-center">
@@ -240,7 +256,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-6 col-10 text-center mt-3">
+          <div class="col-md-6 col-10 text-center">
             <h3>Resepsi</h3>
             <div class="row justify-content-center">
               <div class="col-md-10 text-center">
@@ -346,7 +362,7 @@
         </div>
 
         <div
-          class="row row-cols-lg-4 row-cols-md-3 row-cols-sm-2 row-cols-2 justify-content-center"
+          class="row row-cols-lg-4 row-cols-md-3 row-cols-2 justify-content-center"
         >
           <div class="col mt-3">
             <a
@@ -653,6 +669,7 @@
       }
 
       function enableScroll() {
+        document.getElementById("hero").classList.add("hidden");
         window.onscroll = function () {};
         rootElement.style.scrollBehavior = "smooth";
         // localStorage.setItem("opened", "true");
@@ -660,7 +677,7 @@
       }
 
       function playAudio() {
-        song.volume = 0.1;
+        song.volume = 0.2;
         audioIconWrapper.style.display = "flex";
         song.play();
         isPlaying = true;
@@ -712,6 +729,25 @@
       namaContainer.innerText = `${pronoun} ${nama},`.replace(/ ,$/, ",");
 
       document.querySelector("#nama").value = nama;
+    </script>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+
+    <script>
+      var hero = document.getElementById("hero");
+
+      for (var i = 0; i < 200; i++) {
+        var glitter = document.createElement("div");
+        glitter.className = "glitter";
+        glitter.style.left = Math.random() * 100 + "%";
+        glitter.style.top = "-" + Math.random() * window.innerHeight + "px";
+        glitter.style.animationDuration = Math.random() * 3 + 2 + "s";
+        glitter.style.animationDelay = Math.random() * 3 + "s";
+        hero.appendChild(glitter);
+      }
     </script>
   </body>
 </html>
